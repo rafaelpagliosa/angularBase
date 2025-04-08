@@ -7,11 +7,13 @@ import { Observable } from 'rxjs';
 })
 export class ConsultacepService {
 
-  private apiUrl = 'https://viacep.com.br/ws';
+  apiUrl = 'https://viacep.com.br/ws/';
 
   constructor(private http: HttpClient) { }
 
-  consultar(cep: string): Observable<any> {
+  getConsultar(cep: any): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${cep}/json/`);
   }
+
+
 }
