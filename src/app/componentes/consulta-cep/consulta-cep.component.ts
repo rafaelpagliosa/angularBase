@@ -16,6 +16,7 @@ export class ConsultaCepComponent implements OnInit {
   }
 
 
+
   cep: any;
   logradouro: any;
   bairro: any;

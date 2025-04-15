@@ -3,7 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http'; //essa linha imports
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 import { FormsModule } from '@angular/forms';
 
@@ -30,7 +32,7 @@ import { ConsultaCepComponent } from './componentes/consulta-cep/consulta-cep.co
     MatIconModule,
     MatButtonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

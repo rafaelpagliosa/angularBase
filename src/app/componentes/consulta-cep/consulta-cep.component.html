@@ -1,7 +1,7 @@
 <form class="formulario">
   <div class="mb-3">
     <label for="cep" class="form-label">CEP</label>
-    <input type="text" id="cep" class="form-control" [(ngModel)]="cep" name="cep" required (blur)="buscar()"/>
+    <input type="text" id="cep" class="form-control" [(ngModel)]="cep" name="cep"  required (blur)="buscar()"/>
   </div>
   <div class="mb-3">
     <label for="logradouro" class="form-label">Logradouro</label>
@@ -21,3 +21,8 @@
   </div>
   <button type="submit" class="btn btn-primary" (click)="buscar()">Consultar</button>
 </form>
+
+
+<!--
+npm install angular2-text-mask --save
+-->
