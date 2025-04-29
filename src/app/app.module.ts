@@ -15,6 +15,8 @@ import { CabecalhoComponent } from './componentes/cabecalho/cabecalho.component'
 import { RodapeComponent } from './componentes/rodape/rodape.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConsultaCepComponent } from './componentes/consulta-cep/consulta-cep.component';
+import { UsuarioFormComponent } from './componentes/usuario-form/usuario-form.component';
+import { ListarUsuarioComponent } from './componentes/listar-usuario/listar-usuario.component';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { ConsultaCepComponent } from './componentes/consulta-cep/consulta-cep.co
     CabecalhoComponent,
     RodapeComponent,
     ConsultaCepComponent,
+    UsuarioFormComponent,
+    ListarUsuarioComponent,
   ],
   imports: [
     BrowserModule,
