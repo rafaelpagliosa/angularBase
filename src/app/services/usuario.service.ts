@@ -19,4 +19,12 @@ export class UsuarioService {
   getListar(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(this.api);
   }
+
+  getListarPorId(id: number): Observable<Usuario> {
+    return this.http.get<Usuario>(`${this.api}/${id}`);
+  }
+
+  deletar(id: number): Observable<any> {
+    return this.http.delete(`${this.api}/${id}`);
+  }
 }

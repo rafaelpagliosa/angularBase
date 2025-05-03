@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'consulta', component: ConsultaCepComponent },
   { path: 'cadastro', component: UsuarioFormComponent },
+  { path: 'cadastro/:id', component: UsuarioFormComponent }, // edição
   { path: 'listar', component: ListarUsuarioComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
