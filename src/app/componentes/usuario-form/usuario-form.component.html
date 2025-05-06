@@ -14,7 +14,8 @@
   <span class="erro" *ngIf="isSenha">Tipo de Senha Inválido</span>
   <br/>
 
-  <button class="form-control" type="submit" [disabled]="form.invalid">Salvar</button>
+  <button *ngIf="!isAtualiza" class="form-control" type="submit" [disabled]="form.invalid">Salvar</button>
+  <button *ngIf="isAtualiza" class="form-control" type="submit">Atualiza</button>
 </form>
 
 

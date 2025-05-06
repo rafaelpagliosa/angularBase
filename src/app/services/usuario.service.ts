@@ -20,11 +20,15 @@ export class UsuarioService {
     return this.http.get<Usuario[]>(this.api);
   }
 
-  getListarPorId(id: number): Observable<Usuario> {
+  getListarPorId(id: any): Observable<Usuario> {
     return this.http.get<Usuario>(`${this.api}/${id}`);
   }
 
   deletar(id: number): Observable<any> {
     return this.http.delete(`${this.api}/${id}`);
+  }
+
+  atualizar(id: number, usuario: Usuario): Observable<Usuario> {
+    return this.http.put<Usuario>(`${this.api}/${id}`, usuario);
   }
 }

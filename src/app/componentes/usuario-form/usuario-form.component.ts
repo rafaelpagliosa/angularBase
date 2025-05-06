@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuario-form',
@@ -16,21 +16,26 @@ export class UsuarioFormComponent implements OnInit {
     senha: ''
   };
 
+  isAtualiza = false;
+
   isNome = false;
   isEmail = false;
   isSenha = false;
 
   constructor(
     private usuarioService: UsuarioService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.usuarioService.getListarPorId(+id).subscribe({
+      this.usuarioService.getListarPorId(id).subscribe({
         next: (res) => this.usuario = res,
         error: (err) => console.error('Erro ao buscar usuário:', err)
       });
+      this.isAtualiza = true;
     }
   }
 
@@ -44,6 +49,19 @@ export class UsuarioFormComponent implements OnInit {
       error: (err) => {
         console.error('Erro ao criar usuário:', err);
         alert('Erro ao criar usuário.');
+      }
+    });
+  }
+
+  atualizar() {
+    this.usuarioService.atualizar(this.usuario.id, this.usuario).subscribe({
+      next: (res) => {
+        alert('Usuário atualizado com sucesso!');
+        this.router.navigate(['/home']);
+      },
+      error: (err) => {
+        console.error('Erro ao atualizar usuário:', err);
+        alert('Erro ao atualizar usuário.');
       }
     });
   }
