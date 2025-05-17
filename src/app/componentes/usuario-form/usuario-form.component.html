@@ -1,4 +1,7 @@
+
+
 <form class="formulario" (ngSubmit)="salvar()" #form="ngForm">
+  <h2>{{ usuario.id ? 'Atualização de Cadasto ' : 'Novo Cadastro' }}</h2>
   <label class="mb-3">Nome:</label>
   <input class="form-control" type="text" name="nome" id="nome" (change)="validaNome()" [(ngModel)]="usuario.nome" required />
   <span class="erro" *ngIf="isNome">Nome Inválido</span>
@@ -14,8 +17,8 @@
   <span class="erro" *ngIf="isSenha">Tipo de Senha Inválido</span>
   <br/>
 
-  <button *ngIf="!isAtualiza" class="form-control" type="submit" [disabled]="form.invalid">Salvar</button>
-  <button *ngIf="isAtualiza" class="form-control" type="submit">Atualiza</button>
+  <button  class="form-control" type="submit" [disabled]="form.invalid" [ngClass]="{'atualizar-usuario': usuario.id, 'cadastrar-usuario': !usuario.id}"> {{ usuario.id ? 'Atualizar Usuário' : 'Cadastrar Usuário' }} </button>
+
 </form>
 
 

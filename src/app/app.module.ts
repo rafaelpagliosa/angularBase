@@ -4,10 +4,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
-
-
-
 import { FormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConsultaCepComponent } from './componentes/consulta-cep/consulta-cep.component';
 import { UsuarioFormComponent } from './componentes/usuario-form/usuario-form.component';
 import { ListarUsuarioComponent } from './componentes/listar-usuario/listar-usuario.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 
 @NgModule({
@@ -27,6 +26,7 @@ import { ListarUsuarioComponent } from './componentes/listar-usuario/listar-usua
     ConsultaCepComponent,
     UsuarioFormComponent,
     ListarUsuarioComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +37,7 @@ import { ListarUsuarioComponent } from './componentes/listar-usuario/listar-usua
     MatButtonModule,
     FormsModule,
     HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

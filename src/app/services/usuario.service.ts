@@ -28,7 +28,7 @@ export class UsuarioService {
     return this.http.delete(`${this.api}/${id}`);
   }
 
-  atualizar(id: number, usuario: Usuario): Observable<Usuario> {
+  atualizar(id: any, usuario: Usuario): Observable<Usuario> {
     return this.http.put<Usuario>(`${this.api}/${id}`, usuario);
   }
 }

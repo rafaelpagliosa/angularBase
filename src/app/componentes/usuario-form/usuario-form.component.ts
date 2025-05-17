@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-usuario-form',
@@ -24,8 +24,7 @@ export class UsuarioFormComponent implements OnInit {
 
   constructor(
     private usuarioService: UsuarioService,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -40,30 +39,29 @@ export class UsuarioFormComponent implements OnInit {
   }
 
   salvar() {
-    this.usuarioService.postCriar(this.usuario).subscribe({
-      next: (res) => {
-        console.log('Usuário criado com sucesso:', res);
-        alert('Usuário criado com sucesso!');
-        //this.usuario = { nome: '', email: '', senha: '' };
-      },
-      error: (err) => {
-        console.error('Erro ao criar usuário:', err);
-        alert('Erro ao criar usuário.');
-      }
-    });
-  }
-
-  atualizar() {
-    this.usuarioService.atualizar(this.usuario.id, this.usuario).subscribe({
-      next: (res) => {
-        alert('Usuário atualizado com sucesso!');
-        this.router.navigate(['/home']);
-      },
-      error: (err) => {
-        console.error('Erro ao atualizar usuário:', err);
-        alert('Erro ao atualizar usuário.');
-      }
-    });
+    if (this.isAtualiza) {
+      // ATUALIZAR
+      this.usuarioService.atualizar(this.usuario.id, this.usuario).subscribe({
+        next: (res) => {
+          alert('Usuário atualizado com sucesso!');
+        },
+        error: (err) => {
+          console.error('Erro ao atualizar usuário:', err);
+          alert('Erro ao atualizar usuário.');
+        }
+      });
+    } else {
+      // CRIAR
+      this.usuarioService.postCriar(this.usuario).subscribe({
+        next: (res) => {
+          alert('Usuário criado com sucesso!');
+        },
+        error: (err) => {
+          console.error('Erro ao criar usuário:', err);
+          alert('Erro ao criar usuário.');
+        }
+      });
+    }
   }
 
   validaNome() {

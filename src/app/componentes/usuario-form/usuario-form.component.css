@@ -12,3 +12,16 @@
   font-weight: bold;
   font-size: 13px;
 }
+
+
+.atualizar-usuario {
+  background-color: lightblue;
+  color: black;
+  /* Outros estilos para o modo de atualização */
+}
+
+.cadastrar-usuario {
+  background-color: lightgreen;
+  color: white;
+  /* Outros estilos para o modo de cadastro */
+}
