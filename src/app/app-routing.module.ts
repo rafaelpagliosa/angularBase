@@ -5,14 +5,15 @@ import { ConsultaCepComponent } from './componentes/consulta-cep/consulta-cep.co
 import { UsuarioFormComponent } from './componentes/usuario-form/usuario-form.component';
 import { ListarUsuarioComponent } from './componentes/listar-usuario/listar-usuario.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'consulta', component: ConsultaCepComponent },
-  { path: 'cadastro', component: UsuarioFormComponent },
-  { path: 'cadastro/:id', component: UsuarioFormComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'consulta', component: ConsultaCepComponent, canActivate: [AuthGuard] },
+  { path: 'cadastro', component: UsuarioFormComponent, canActivate: [AuthGuard] },
+  { path: 'cadastro/:id', component: UsuarioFormComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent }, //essa linha
-  { path: 'listar', component: ListarUsuarioComponent },
+  { path: 'listar', component: ListarUsuarioComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
